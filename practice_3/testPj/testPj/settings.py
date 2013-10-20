@@ -1,4 +1,5 @@
 # Django settings for testPj project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -47,6 +48,8 @@ USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
+
+PROJECT_ROOT= os.path.dirname(os.path.realpath(__file__))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -108,9 +111,8 @@ ROOT_URLCONF = 'testPj.urls'
 WSGI_APPLICATION = 'testPj.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+	'/home/student/practice/practice_3/testPj/templates/',
+	
 )
 
 INSTALLED_APPS = (
