@@ -104,6 +104,7 @@ ROOT_URLCONF = 'myLibrary.urls'
 WSGI_APPLICATION = 'myLibrary.wsgi.application'
 
 TEMPLATE_DIRS = (
+    '/home/student/practice/practice_4/myLibrary/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
