@@ -1,5 +1,5 @@
 import os
-from  django.contrib.contenttypes import generic
+from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models, connection
 import datetime
@@ -10,10 +10,11 @@ class Author(models.Model):
 
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    email = models.EmailField(blank=True,null=True)
+    email = models.EmailField(blank=True, null=True)
 
     def __unicode__(self):
-        return u'%s %s'%(self.first_name, self.last_name)
+        return u'%s %s' % (self.first_name, self.last_name)
+
 
 class Book(models.Model):
 
@@ -24,20 +25,23 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         curson = connection.cursor()
-        curson.execute("SELECT id FROM library_book WHERE title = %s",[self.title])
+        curson.execute(
+            "SELECT id FROM library_book WHERE title = %s", [self.title])
         return "/library/books/%s/" % curson.fetchall()[0]
 
     def __unicode__(self):
         return self.title
 
+
 class BookImage(models.Model):
 
     small_image = models.ImageField(upload_to='upload')
-    large_image = models.ImageField(blank=True,null=True,upload_to='upload')
+    large_image = models.ImageField(blank=True, null=True, upload_to='upload')
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey('content_type','object_id')
+    content_object = generic.GenericForeignKey('content_type', 'object_id')
     book_cover = models.ForeignKey('Book')
+
 
 class Publisher(models.Model):
 
@@ -48,6 +52,4 @@ class Publisher(models.Model):
     website = models.URLField(max_length=32)
 
     def __unicode__(self):
-        return u'%s (%s, %s)'%(self.title, self.city, self.country)
-
-
+        return u'%s (%s, %s)' % (self.title, self.city, self.country)

@@ -1,0 +1,18 @@
+<html>
+<center>
+<table border="1">
+    <tr><td><b>Имя</b></td><td><b>Размер</b></td><td><b>Дата последней модификации</b></td></tr>
+{% for item, values in context.items %}
+    <tr>
+        {% if values.is_file %}
+            <td>{{ values.name}}</td>
+        {% else %}
+            <td><a href="{{values.name}}">{{ values.name}}</a></td>
+        {% endif %}
+        <td>{{ values.size}}</td>
+        <td>{{ values.last_mod}}</td>
+    </tr>
+{% endfor %}
+</table>
+</center>
+</html>

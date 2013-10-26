@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os, sys
+import os
+import sys
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -22,16 +23,17 @@ class ImageInline(generic.GenericTabularInline):
 
 
 class BooksAdmin(admin.ModelAdmin):
+
     def covers_count(self, obj):
         return BookImage.objects.filter(id=obj.id).count()
 
-    list_display = ['title', 'publisher', 'publication_date', 'covers_count',]
+    list_display = ['title', 'publisher', 'publication_date', 'covers_count', ]
     list_display_links = ['title']
 
     search_fields = ['title']
     date_hierarchy = 'publication_date'
     fieldsets = (
-        (None, {'fields': ('title','authors','publication_date',)}),
+        (None, {'fields': ('title', 'authors', 'publication_date',)}),
         ('Выходные данные', {
             'classes': ('wide',),
             'description': 'Данные об издательстве',
@@ -60,5 +62,3 @@ class PublisherAdmin(admin.ModelAdmin):
 admin.site.register(Book, BooksAdmin)
 admin.site.register(Author, AuthorsAdmin)
 admin.site.register(Publisher, PublisherAdmin)
-
-

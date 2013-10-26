@@ -2,7 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import Context, Template
 from django.template.loader import get_template
-import os, time, datetime
+import os
+import time
+import datetime
 
 # Create your views here.
 
@@ -18,14 +20,15 @@ def listing(request, file_path):
             is_file = True
         else:
             is_file = False
-        context[file_name] = {'name': file_name, 'fullpath': file_path, 'size': size,
-                              'last_mod': time.strftime("%m/%d/%Y %I:%M:%S %p",
-                                                        time.localtime(
-                                                            os.path.getmtime(
-                                                                os.path.join(
+        context[
+            file_name] = {'name': file_name, 'fullpath': file_path, 'size': size,
+                          'last_mod': time.strftime("%m/%d/%Y %I:%M:%S %p",
+                                                    time.localtime(
+                                                        os.path.getmtime(
+                                                            os.path.join(
                                                                     file_path,
-                                                                    file_name)))),
-                              'is_file': is_file}
+                                                                file_name)))),
+                          'is_file': is_file}
     return render_to_response('listing.html', {'context': context})
 
 
