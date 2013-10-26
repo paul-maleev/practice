@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<br>Карточка книги</br>
+<table border="1">
+        <tr>
+            <td>
+               {{book_data.title}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% for i,a in book_data.authors.items %}
+                    <a href="/library/authors/{{i}}/">{{ a }}</a>,
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{book_data.publisher}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{book_data.publication_date}}
+            </td>
+        </tr>
+</table>
+</body>
+</html>
