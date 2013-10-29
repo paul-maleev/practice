@@ -3,6 +3,9 @@ from django.contrib import admin
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
+from myLibrary import settings
+from myLibrary.settings import MEDIA_ROOT
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -14,7 +17,8 @@ urlpatterns = patterns('',
                        url(r'^library/authors/$', 'library.views.authors'),
                        url(r'^library/authors/(\d+)/$',
                            'library.views.authorsCard'),
-
+                        url(r'^upload/(?P<path>.*)$', 'django.views.static.serve', {
+                        'document_root': settings.MEDIA_ROOT, }),
 
                        # Examples:
                        # url(r'^$', 'myLibrary.views.home', name='home'),

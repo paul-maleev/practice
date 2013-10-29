@@ -3,7 +3,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models, connection
 import datetime
-from myLibrary.settings import PROJECT_ROOT
+from myLibrary.settings import PROJECT_ROOT, MEDIA_ROOT, MEDIA_URL
 
 
 class Author(models.Model):
@@ -35,13 +35,31 @@ class Book(models.Model):
 
 class BookImage(models.Model):
 
-    small_image = models.ImageField(upload_to='upload')
-    large_image = models.ImageField(blank=True, null=True, upload_to='upload')
+    small_image = models.ImageField(upload_to=MEDIA_ROOT)
+    large_image = models.ImageField(blank=True, null=True, upload_to=MEDIA_ROOT)
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
     book_cover = models.ForeignKey('Book')
 
+    def __unicode__(self):
+        return "%s" % self.id
+
+    def image_count(self):
+        counter = 0
+        if self.small_image:
+            counter+=1
+        elif self.large_image:
+            counter=+1
+        return "%s" % counter
+
+
+    def img_tag(self):
+        return '<img src="%s%s"/>' % (MEDIA_URL, os.path.basename(self.small_image.name))
+    img_tag.allow_tags = True
+
+    def large_img_tag(self):
+        return '<img src="%s%s"/>' % (MEDIA_URL, os.path.basename(self.large_image.name))
+    large_img_tag.allow_tags = True
 
 class Publisher(models.Model):
 

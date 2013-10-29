@@ -25,9 +25,31 @@ class ImageInline(generic.GenericTabularInline):
 class BooksAdmin(admin.ModelAdmin):
 
     def covers_count(self, obj):
-        return BookImage.objects.filter(id=obj.id).count()
+        counter = 0
+        for c in BookImage.objects.filter(id=obj.id):
+            if c.small_image:
+                counter+=1
+            if c.large_image:
+                counter+=1
+        return counter
+    covers_count.allow_tags = True
 
-    list_display = ['title', 'publisher', 'publication_date', 'covers_count', ]
+    def get_img_cover(self, obj):
+        link=""
+        for c in BookImage.objects.filter(id=obj.id):
+            link = c.img_tag()
+        return link
+    get_img_cover.allow_tags = True
+
+    def get_large_img_cover(self, obj):
+        link=""
+        for c in BookImage.objects.filter(id=obj.id):
+            link = c.img_tag()
+        return link
+    get_large_img_cover.allow_tags = True
+
+
+    list_display = ['title', 'publisher', 'publication_date', 'covers_count','get_img_cover','get_large_img_cover',]
     list_display_links = ['title']
 
     search_fields = ['title']
@@ -43,9 +65,13 @@ class BooksAdmin(admin.ModelAdmin):
     filter_horizontal = ('authors',)
     inlines = [ImageInline, ]
 
+class BookImageAdmin(admin.ModelAdmin):
+    list_display = ['id','book_cover','img_tag','large_img_tag']
+
+
 
 class PublisherAdmin(admin.ModelAdmin):
-    list_display = ['title', 'country', 'city']
+    list_display = ['title', 'country', 'city',]
     list_display_links = ['title']
     ordering = ['title']
     list_filter = ['country', 'city']
@@ -59,6 +85,10 @@ class PublisherAdmin(admin.ModelAdmin):
     )
 
 
+
+
+
 admin.site.register(Book, BooksAdmin)
+#admin.site.register(BookImage,BookImageAdmin)
 admin.site.register(Author, AuthorsAdmin)
 admin.site.register(Publisher, PublisherAdmin)
