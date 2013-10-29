@@ -1,6 +1,12 @@
 from django.db import models, connection
 import datetime
 
+<<<<<<< Updated upstream
+=======
+# test
+
+
+>>>>>>> Stashed changes
 class Author(models.Model):
 
     first_name = models.CharField(max_length=32)
