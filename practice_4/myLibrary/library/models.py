@@ -2,8 +2,13 @@ from django.db import models, connection
 import datetime
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 # test
+=======
+# test
+
+>>>>>>> Stashed changes
 
 
 >>>>>>> Stashed changes
