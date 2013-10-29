@@ -17,8 +17,8 @@ urlpatterns = patterns('',
                        url(r'^library/authors/$', 'library.views.authors'),
                        url(r'^library/authors/(\d+)/$',
                            'library.views.authorsCard'),
-                        url(r'^upload/(?P<path>.*)$', 'django.views.static.serve', {
-                        'document_root': settings.MEDIA_ROOT, }),
+                       url(r'^upload/(?P<path>.*)$', 'django.views.static.serve', {
+                           'document_root': settings.MEDIA_ROOT, }),
 
                        # Examples:
                        # url(r'^$', 'myLibrary.views.home', name='home'),

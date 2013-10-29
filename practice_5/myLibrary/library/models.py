@@ -36,7 +36,8 @@ class Book(models.Model):
 class BookImage(models.Model):
 
     small_image = models.ImageField(upload_to=MEDIA_ROOT)
-    large_image = models.ImageField(blank=True, null=True, upload_to=MEDIA_ROOT)
+    large_image = models.ImageField(
+        blank=True, null=True, upload_to=MEDIA_ROOT)
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     book_cover = models.ForeignKey('Book')
@@ -47,11 +48,10 @@ class BookImage(models.Model):
     def image_count(self):
         counter = 0
         if self.small_image:
-            counter+=1
+            counter += 1
         elif self.large_image:
-            counter=+1
+            counter = +1
         return "%s" % counter
-
 
     def img_tag(self):
         return '<img src="%s%s"/>' % (MEDIA_URL, os.path.basename(self.small_image.name))
@@ -60,6 +60,7 @@ class BookImage(models.Model):
     def large_img_tag(self):
         return '<img src="%s%s"/>' % (MEDIA_URL, os.path.basename(self.large_image.name))
     large_img_tag.allow_tags = True
+
 
 class Publisher(models.Model):
 
