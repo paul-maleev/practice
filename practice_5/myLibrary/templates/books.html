@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список книг</title>
+</head>
+<body>
+<center>
+<br>Список книг</br>
+<table border="1">
+    <tr>
+    {% for item, values in books.items %}
+        <td>
+        <a href="{{ values.abs_url }}"> {{ values.title }} </a>
+        </td>
+        <td>
+            {% for a in values.authors %}
+                {{ a }},
+            {% endfor %}
+        </td>
+        <td>
+        {{ values.publisher}}
+        </td>
+        </tr>
+    {% endfor %}
+
+</table>
+</center>
+</body>
+</html>

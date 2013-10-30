@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title></title>
+</head>
+<body>
+<br>Список авторов</br>
+<table border="1">
+    {% for item, values in authors.items %}
+    <tr><td><a href="/library/authors/{{item}}/">{{values}}</a></td></tr>
+    {% endfor %}
+</table>
+</body>
+</html>

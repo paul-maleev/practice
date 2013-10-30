@@ -8,13 +8,13 @@ if not str.isdigit():
     sys.exit(0)
 year = int(str)
 
-if year%4==0:
-    if year%100:
-        if year%400:
-            print(year.__str__()+" is a leap year")
+if year % 4 == 0:
+    if year % 100:
+        if year % 400:
+            print(year.__str__() + " is a leap year")
         else:
-            print(year.__str__()+" isn\'t a leap year")
+            print(year.__str__() + " isn\'t a leap year")
     else:
-        print(year.__str__()+" is a leap year")
+        print(year.__str__() + " is a leap year")
 else:
-    print(year.__str__()+" isn\'t a leap year")
+    print(year.__str__() + " isn\'t a leap year")
