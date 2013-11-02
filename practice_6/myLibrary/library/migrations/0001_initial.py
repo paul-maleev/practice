@@ -13,7 +13,8 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('first_name', self.gf('django.db.models.fields.CharField')(max_length=32)),
             ('last_name', self.gf('django.db.models.fields.CharField')(max_length=32)),
-            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75, null=True, blank=True)),
+            ('email', self.gf('django.db.models.fields.EmailField')
+             (max_length=75, null=True, blank=True)),
         ))
         db.send_create_signal(u'library', ['Author'])
 
@@ -21,8 +22,10 @@ class Migration(SchemaMigration):
         db.create_table(u'library_book', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('publisher', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['library.Publisher'])),
-            ('publication_date', self.gf('django.db.models.fields.DateField')(default=datetime.datetime(2013, 11, 2, 0, 0))),
+            ('publisher', self.gf('django.db.models.fields.related.ForeignKey')
+             (to=orm['library.Publisher'])),
+            ('publication_date', self.gf('django.db.models.fields.DateField')
+             (default=datetime.datetime(2013, 11, 2, 0, 0))),
         ))
         db.send_create_signal(u'library', ['Book'])
 
@@ -39,10 +42,13 @@ class Migration(SchemaMigration):
         db.create_table(u'library_bookimage', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('small_image', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('large_image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('content_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['contenttypes.ContentType'])),
+            ('large_image', self.gf('django.db.models.fields.files.ImageField')
+             (max_length=100, null=True, blank=True)),
+            ('content_type', self.gf('django.db.models.fields.related.ForeignKey')
+             (to=orm['contenttypes.ContentType'])),
             ('object_id', self.gf('django.db.models.fields.PositiveIntegerField')()),
-            ('book_cover', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['library.Book'])),
+            ('book_cover', self.gf('django.db.models.fields.related.ForeignKey')
+             (to=orm['library.Book'])),
         ))
         db.send_create_signal(u'library', ['BookImage'])
 
@@ -56,7 +62,6 @@ class Migration(SchemaMigration):
             ('website', self.gf('django.db.models.fields.URLField')(max_length=32)),
         ))
         db.send_create_signal(u'library', ['Publisher'])
-
 
     def backwards(self, orm):
         # Deleting model 'Author'
@@ -73,7 +78,6 @@ class Migration(SchemaMigration):
 
         # Deleting model 'Publisher'
         db.delete_table(u'library_publisher')
-
 
     models = {
         u'contenttypes.contenttype': {

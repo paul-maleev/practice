@@ -2,11 +2,12 @@ import os
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models, connection
+from utils.models import TimeStampedModel
 import datetime
 from myLibrary.settings import PROJECT_ROOT, MEDIA_ROOT, MEDIA_URL
 
 
-class Author(models.Model):
+class Author(TimeStampedModel):
 
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
@@ -17,13 +18,13 @@ class Author(models.Model):
         return u'%s %s' % (self.first_name, self.last_name)
 
 
-class Book(models.Model):
+class Book(TimeStampedModel):
 
     title = models.CharField(max_length=128)
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey('Publisher')
     publication_date = models.DateField(default=datetime.datetime.now())
-    description = models.TextField(null=False,blank=False,default="")
+    description = models.TextField(null=False, blank=False, default="")
 
     def get_absolute_url(self):
         curson = connection.cursor()
@@ -35,7 +36,7 @@ class Book(models.Model):
         return self.title
 
 
-class BookImage(models.Model):
+class BookImage(TimeStampedModel):
 
     small_image = models.ImageField(upload_to=MEDIA_ROOT)
     large_image = models.ImageField(
@@ -64,7 +65,7 @@ class BookImage(models.Model):
     large_img_tag.allow_tags = True
 
 
-class Publisher(models.Model):
+class Publisher(TimeStampedModel):
 
     title = models.CharField(max_length=32)
     address = models.TextField()

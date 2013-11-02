@@ -55,7 +55,7 @@ class BooksAdmin(admin.ModelAdmin):
     search_fields = ['title']
     date_hierarchy = 'publication_date'
     fieldsets = (
-        (None, {'fields': ('title', 'authors','description', 'publication_date',)}),
+        (None, {'fields': ('title', 'authors', 'description', 'publication_date',)}),
         ('Выходные данные', {
             'classes': ('wide',),
             'description': 'Данные об издательстве',

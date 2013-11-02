@@ -10,14 +10,13 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding field 'Author.birth_year'
         db.add_column(u'library_author', 'birth_year',
-                      self.gf('django.db.models.fields.IntegerField')(null=True, blank=True),
+                      self.gf('django.db.models.fields.IntegerField')(
+                          null=True, blank=True),
                       keep_default=False)
-
 
     def backwards(self, orm):
         # Deleting field 'Author.birth_year'
         db.delete_column(u'library_author', 'birth_year')
-
 
     models = {
         u'contenttypes.contenttype': {

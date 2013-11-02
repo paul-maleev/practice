@@ -30,14 +30,20 @@ def index(request):
 
 
 def bookCard(request, id):
+
     book = Book.objects.raw(
         "SELECT * FROM library_book WHERE id = %s", [id])[0]
+
     IDs = connection.cursor()
+
     IDs = IDs.execute(
         "SELECT A.id FROM library_author AS A JOIN library_book_authors AS B ON A.id=B.id WHERE B.book_id = %s", [id])
+
     authors = {}
+
     for i, a in zip(IDs.fetchall(), book.authors.all()):
         authors[str(i[0])] = a.__unicode__()
+
     book_data = {'id': id, 'title': book.__unicode__(), 'authors': authors, 'publisher':
                  book.publisher.__unicode__(), 'publication_date': str(book.publication_date)}
     return render_to_response('book_data.html', {'book_data': book_data})
