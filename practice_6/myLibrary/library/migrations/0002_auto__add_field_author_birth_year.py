@@ -38,7 +38,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Book'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['library.Author']", 'symmetrical': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'publication_date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2013, 11, 2, 0, 0)'}),
+            'publication_date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2013, 11, 9, 0, 0)'}),
             'publisher': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['library.Publisher']"}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '128'})
         },

@@ -45,8 +45,7 @@ def bookCard(request, id):
         authors[str(i[0])] = a.__unicode__()
 
     book_data = {'id': id, 'title': book.__unicode__(), 'authors': authors, 'publisher':
-                 book.publisher.__unicode__(), 'publication_date': str(book.publication_date),
-                 'description': book.description}
+                 book.publisher.__unicode__(), 'publication_date': str(book.publication_date)}
     return render_to_response('book_data.html', {'book_data': book_data})
 
 

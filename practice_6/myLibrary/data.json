@@ -4,9 +4,8 @@
         "model": "library.author", 
         "fields": {
             "first_name": "\u041c\u0430\u0440\u043a", 
-            "last_name": "\u041b\u0443\u0442\u0446",
-            "email": "lutz@rmi.net",
-            "birth_year": 1945
+            "last_name": "\u041b\u0443\u0442\u0446", 
+            "email": "lutz@rmi.net"
         }
     }, 
     {
@@ -15,8 +14,7 @@
         "fields": {
             "first_name": "\u0414\u044d\u0432\u0438\u0434", 
             "last_name": "\u0411\u0438\u0437\u043b\u0438", 
-            "email": "dave@dabeaz.com",
-            "birth_year": 1945
+            "email": "dave@dabeaz.com"
         }
     }, 
     {
@@ -24,9 +22,8 @@
         "model": "library.author", 
         "fields": {
             "first_name": "\u0414\u0436\u0435\u0444\u0444", 
-            "last_name": "\u0424\u043e\u0440\u0441\u044c\u0435",
-            "email": null,
-            "birth_year": 1980
+            "last_name": "\u0424\u043e\u0440\u0441\u044c\u0435", 
+            "email": null
         }
     }, 
     {
@@ -34,19 +31,17 @@
         "model": "library.author", 
         "fields": {
             "first_name": "\u0423\u044d\u0441\u043b\u0438", 
-            "last_name": "\u0427\u0430\u043d",
-            "email": null,
-            "birth_year": 1980
+            "last_name": "\u0427\u0430\u043d", 
+            "email": null
         }
-    },
+    }, 
     {
         "pk": 5, 
         "model": "library.author", 
         "fields": {
             "first_name": "\u041f\u043e\u043b", 
-            "last_name": "\u0411\u0438\u0441\u0441\u0435\u043a\u0441",
-            "email": null,
-            "birth_year": 1980
+            "last_name": "\u0411\u0438\u0441\u0441\u0435\u043a\u0441", 
+            "email": null
         }
     }, 
     {

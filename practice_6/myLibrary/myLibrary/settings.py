@@ -1,7 +1,7 @@
 # Django settings for myLibrary project.
 import os.path
-import south
 import sys
+import south
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -131,8 +131,8 @@ INSTALLED_APPS = (
     #'django.contrib.sites',
     'django.contrib.messages',
     'library',
-    'utils',
     'orders',
+    'utils',
     'south',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',

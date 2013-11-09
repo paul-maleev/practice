@@ -2,9 +2,9 @@ import os
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models, connection
-from utils.models import TimeStampedModel
 import datetime
 from myLibrary.settings import PROJECT_ROOT, MEDIA_ROOT, MEDIA_URL
+from utils.models import TimeStampedModel
 
 
 class Author(TimeStampedModel):
@@ -24,7 +24,7 @@ class Book(TimeStampedModel):
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey('Publisher')
     publication_date = models.DateField(default=datetime.datetime.now())
-    description = models.TextField(null=False, blank=False, default="")
+    description = models.TextField(null=False)
 
     def get_absolute_url(self):
         curson = connection.cursor()

@@ -12,56 +12,56 @@ class Migration(SchemaMigration):
         db.add_column(u'library_book', 'created',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now_add=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'Book.modified'
         db.add_column(u'library_book', 'modified',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'BookImage.created'
         db.add_column(u'library_bookimage', 'created',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now_add=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'BookImage.modified'
         db.add_column(u'library_bookimage', 'modified',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'Publisher.created'
         db.add_column(u'library_publisher', 'created',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now_add=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'Publisher.modified'
         db.add_column(u'library_publisher', 'modified',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'Author.created'
         db.add_column(u'library_author', 'created',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now_add=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
         # Adding field 'Author.modified'
         db.add_column(u'library_author', 'modified',
                       self.gf('django.db.models.fields.DateTimeField')(
                           auto_now=True, default=datetime.datetime(
-                              2013, 11, 2, 0, 0), blank=True),
+                              2013, 11, 9, 0, 0), blank=True),
                       keep_default=False)
 
     def backwards(self, orm):
@@ -111,10 +111,10 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Book'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['library.Author']", 'symmetrical': 'False'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {'default': "''"}),
+            'description': ('django.db.models.fields.TextField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'publication_date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2013, 11, 2, 0, 0)'}),
+            'publication_date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2013, 11, 9, 0, 0)'}),
             'publisher': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['library.Publisher']"}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '128'})
         },
