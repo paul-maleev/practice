@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>Информация о книге</h1>
+{% if book %}
+    <table border="1">
+        <th>Название</th><th>Автор</th><th>Издательство</th>
+        <tr>
+        <td>{{ book }}</td>
+        <td>{% for author in book.authors.all %} <a href="{{ author.get_id }}">{{ author }}</a>; {% endfor %}</td>
+        <td>{{ book.publisher }}</td>
+        </tr>
+    </table>
+{% else %}
+    <p>No book information available.</p>
+{% endif %}
+</body>
+</html>

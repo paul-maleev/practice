@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Список книг</h1>
+{% if object_list %}
+    <table border="1">
+        <th>Название</th><th>ISBN</th><th>Автор</th><th>Издательство</th>
+    {% for book in object_list %}
+        <tr>
+            <td>
+                <a href="{{ book.get_absolute_url }}">{{ book }}</a>
+            </td>
+            <td>{{ book.isbn }}</td>
+            <td>{% for author in book.authors.all %}{{ author }}; {% endfor %}</td>
+            <td>{{ book.publisher }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No books are available.</p>
+{% endif %}
+</body>
+</html>
