@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>Информация об авторе</h1>
+{% if author %}
+    <table border="1">
+        <th>Фамилия Имя</th><th>E-mail</th><th>Возраст</th>
+        <tr><td>{{ author }}</td><td>{{ author.email }}</td><td>{% if age %}
+{{ age }}
+{% else %}
+«возраст неизвестен»
+{% endif %}
+</td></tr>
+    </table>
+{% else %}
+    <p>No author information available.</p>
+{% endif %}
+</body>
+</html>

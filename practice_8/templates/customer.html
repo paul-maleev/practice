@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>Информация о заказчике: </h1>
+<table border="1">
+    <tr>
+        <td>Имя:</td>
+        <td>{{ customer.first_name }}</td>
+    </tr>
+    <tr>
+        <td>Фамилия:</td>
+        <td>{{ customer.last_name }}</td>
+    </tr>
+    <tr>
+        <td>Адрес:</td>
+        <td>{{ customer.address }}</td>
+    </tr>
+    <tr>
+        <td>Одобрен:</td>
+        <td>{{ customer.is_approved }}</td>
+    </tr>
+    <tr>
+        <td>E-mail:</td>
+        <td>{{ customer.email }}</td>
+    </tr>
+</table>
+</body>
+</html>
