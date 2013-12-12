@@ -19,7 +19,7 @@ urlpatterns = patterns('',
                        url(r'^login/$', login),
                        url(r'^logout/$', logout),
                        url(r'^register/$', register),
-                       url(r'^/$', BookListView.as_view())
+
                        url(r'^library/$', BookListView.as_view()),
                        url(r'^library/books/$', BookListView.as_view()),
                        url(r'^library/books/(?P<pk>\d+)/$',
