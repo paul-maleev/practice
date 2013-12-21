@@ -1,0 +1,17 @@
+﻿<html>
+        <head>
+                <meta charset="utf-8">
+                <title>Кодировщик</title>
+                <script type="text/javascript">
+                        function buttonCode(event) {
+                                var elem = document.getElementById('type-display')
+                                elem.innerHTML = elem.textContent + event.keyCode+' ';
+                        }
+                </script>
+        </head>
+        <body onkeyup="buttonCode(event)">
+                <div id='type-display'>
+                        Нажимайте кнопки на клавиатуре: <br/>
+                </div>
+        </body>
+</html>
